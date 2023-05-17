@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: BaimaRubiksCube\n"
-"POT-Creation-Date: 2023-05-16 21:50+0800\n"
-"PO-Revision-Date: 2023-05-16 21:51+0800\n"
+"POT-Creation-Date: 2023-05-18 09:15+0800\n"
+"PO-Revision-Date: 2023-05-18 09:27+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: zh_CN\n"
@@ -15,43 +15,92 @@ msgstr ""
 "X-Poedit-KeywordsList: _\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: main.py:14 rubiks_cube_window.py:15
+#: main.py:14 rubiks_cube_window.py:22
+#: test/Ä§·½µÄÎÄ¼þ/rubiks_cube_window.py:15
 msgid "Baima Rubiks Cube"
 msgstr "拜玛魔方"
 
-#: rubiks_cube.py:21
+#: rubiks_cube.py:27
 msgid "red"
 msgstr "红色"
 
-#: rubiks_cube.py:21
+#: rubiks_cube.py:27
 msgid "green"
 msgstr "绿色"
 
-#: rubiks_cube.py:21
+#: rubiks_cube.py:27
 msgid "orange"
 msgstr "橙色"
 
-#: rubiks_cube.py:21
+#: rubiks_cube.py:27
 msgid "blue"
 msgstr "蓝色"
 
-#: rubiks_cube.py:21
+#: rubiks_cube.py:27
 msgid "yellow"
 msgstr "黄色"
 
-#: rubiks_cube.py:21
+#: rubiks_cube.py:27
 msgid "white"
 msgstr "白色"
 
-#: rubiks_cube.py:314
+#: rubiks_cube.py:258
 msgid "row"
 msgstr "行"
 
-#: rubiks_cube.py:314
+#: rubiks_cube.py:258
 msgid "column"
 msgstr "列"
 
-#: rubiks_cube_window.py:19
+#: rubiks_cube_window.py:34 test/Ä§·½µÄÎÄ¼þ/rubiks_cube_window.py:19
 #, python-format
 msgid "Please press the arrow keys to view the block information. %s"
 msgstr "请按光标键查看方块信息。 %s"
+
+#: rubiks_cube_window.py:95
+#, python-format
+msgid "The Rubiks Cube has been restored %s"
+msgstr "魔方已经复原了。 %s"
+
+#: rubiks_cube_window.py:99
+#, python-format
+msgid "The order has been disrupted. %s"
+msgstr "顺序已经打乱了。 %s"
+
+#: rubiks_cube_window.py:112
+#, python-format
+msgid "The number of the rubiks cube is %s ."
+msgstr "魔方的阶数已经是 %s 。"
+
+#: rubiks_cube_window.py:120
+msgid "sound on."
+msgstr "音效开"
+
+#: rubiks_cube_window.py:121
+msgid "sound off."
+msgstr "音效关"
+
+#: rubiks_cube_window.py:125 rubiks_cube_window.py:129
+#, python-format
+msgid "sound volume %s"
+msgstr "音效音量 %s"
+
+#: rubiks_cube_window.py:175
+msgid "congratulations! You have restored the Rubik's Cube!"
+msgstr "恭喜你！你已经复原魔方了！"
+
+#: select_rubiks_cube_num_window.py:10
+msgid "Baima Rubiks Cube - select number"
+msgstr "拜玛魔方-选择阶数"
+
+#: select_rubiks_cube_num_window.py:16
+#, python-format
+msgid ""
+"Please press the up and down arrow keys to select the number of the Rubik's "
+"Cube, and press Enter to confirm. %s"
+msgstr "请按上下光标键选择魔方的阶数，按回车确定。 %s"
+
+#: test/Ä§·½µÄÎÄ¼þ/rubiks_cube_window.py:32
+#, python-format
+msgid "The order has been adjusted. %s"
+msgstr "顺序已经调整好了。 %s"

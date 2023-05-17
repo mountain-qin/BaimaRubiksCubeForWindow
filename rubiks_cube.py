@@ -5,6 +5,7 @@
 """魔方模块"""
 
 
+from random import randint
 import translater
 if not translater.init(): _=lambda x:x
 
@@ -267,7 +268,28 @@ class RubiksCube():
 		return True
 
 
-	def adjust_order(self):
+	def restore(self):
 		self.side_focus,self.row_focus,self.col_focus=0,0,0
 		# 重新生成魔方
 		self.list=[[[self.titles[s] for c in range(self.num)] for r in range(self.num)] for s in range(6)]
+
+
+	def disrupt_order(self):
+		for i in range(self.num*50):
+			self.row_focus=randint(0,self.num-1)
+			self.col_focus=randint(0,self.num-1)
+			n=randint(0,11)
+			if n==0:self.rotate_left()
+			elif n==1:self.rotate_left_entire()
+			elif n==2:self.rotate_up()
+			elif n==3:self.rotate_up_entire()
+			elif n==4:self.rotate_right()
+			elif n==5:self.rotate_right_entire()
+			elif n==6:self.rotate_down()
+			elif n==7:self.rotate_down_entire()
+			elif n==8:self.rotate_clockwise()
+			elif n==9:self.rotate_clockwise_entire()
+			elif n==10:self.rotate_anticlockwise()
+			elif n==11:self.rotate_anticlockwise_entire()
+
+		self.row_focus,self.col_focus=0,0

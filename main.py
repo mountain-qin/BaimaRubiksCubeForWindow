@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 
+import os
 import wx
 from keyboard_listener_window import KeyboardListenerWindow
 from rubiks_cube_window import RubiksCubeWindow
@@ -11,11 +12,12 @@ if not translater.init(): _=lambda x: x
 
 
 class MainWindow(KeyboardListenerWindow):
-    def __init__(self, title=_("Baima Rubiks Cube"), *args, **kw):
-        super().__init__(title=title,*args,**kw)
+	def __init__(self, title=_("Baima Rubiks Cube"), *args, **kw):
+		super().__init__(title=title,*args,**kw)
 
-        RubiksCubeWindow(None)
-        self.Destroy()
+		RubiksCubeWindow(None)
+		self.Destroy()
+
 
 
 app=wx.App(False)

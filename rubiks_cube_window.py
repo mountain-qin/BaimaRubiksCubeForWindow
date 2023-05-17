@@ -16,12 +16,52 @@ class RubiksCubeWindow(KeyboardListenerWindow):
 		super().__init__(parent, id, title, *args, **kw)
 
 		self.rubiks_cube=RubiksCube()
-		super().show_message(_("Please press the arrow keys to view the block information. %s"%self.rubiks_cube.get_focus_block_information()))
+		super().show_message(_("Please press the arrow keys to view the block information. %s") %self.rubiks_cube.get_focus_block_information())
 		
 
 	def on_char_hook(self, event:wx.KeyEvent):
 		self.view_block(event)
+		self.rotate_block(event)
+		self.rotate_entire(event)
+
+		key_code=event.GetKeyCode()
+		if event.GetModifiers()==0:
+			# 重新调整顺序 
+			if key_code==wx.WXK_F5:
+				self.rubiks_cube.adjust_order()
+				super().show_message(_("The order has been adjusted. %s")%self.rubiks_cube.get_focus_block_information())
 		event.Skip()
+
+
+	def rotate_entire(self,event:wx.KeyEvent):
+		# 要按下ctrl +shift
+		if event.GetModifiers()!=wx.MOD_CONTROL+wx.MOD_SHIFT:return
+		key_code=event.GetKeyCode()
+		if key_code==wx.WXK_LEFT:self.rubiks_cube.rotate_left_entire()
+		elif key_code==wx.WXK_UP:self.rubiks_cube.rotate_up_entire()
+		elif key_code==wx.WXK_RIGHT:self.rubiks_cube.rotate_right_entire()
+		elif key_code==wx.WXK_DOWN:self.rubiks_cube.rotate_down_entire()
+		elif key_code==wx.WXK_PAGEUP:self.rubiks_cube.rotate_clockwise_entire()
+		elif key_code==wx.WXK_HOME:self.rubiks_cube.rotate_anticlockwise_entire()
+		else:return
+
+		super().show_message(self.rubiks_cube.get_focus_block_information())
+
+
+	def rotate_block(self, event:wx.KeyEvent):
+		# 要按下ctrl
+		if event.GetModifiers()!=wx.MOD_CONTROL:return
+		key_code=event.GetKeyCode()
+		if key_code==wx.WXK_LEFT:self.rubiks_cube.rotate_left()
+		elif key_code==wx.WXK_UP:self.rubiks_cube.rotate_up()
+		elif key_code==wx.WXK_RIGHT:self.rubiks_cube.rotate_right()
+		elif key_code==wx.WXK_DOWN:self.rubiks_cube.rotate_down()
+		elif key_code==wx.WXK_PAGEUP:self.rubiks_cube.rotate_clockwise()
+		elif key_code==wx.WXK_HOME:self.rubiks_cube.rotate_anticlockwise()
+		else:return
+
+		super().show_message(self.rubiks_cube.get_focus_block_information())
+		if self.rubiks_cube.check_successful():Beep(880, 500)
 
 
 	def view_block(self,event:wx.KeyEvent):

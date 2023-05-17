@@ -18,7 +18,8 @@ import sys
 def init(
 	# mo文件名
 	# 和主py文件名一致
-	domain=os.path.splitext(os.path.split(sys.argv[0])[1])[0],
+	# domain=os.path.splitext(os.path.split(sys.argv[0])[1])[0],
+	domain="BaimaRubiksCube",
 	locale_path=os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])),"locale"),
 	languages=[locale.getdefaultlocale()[0]]
 	):
